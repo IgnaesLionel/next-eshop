@@ -8,8 +8,10 @@ module.exports = {
       "Zk(yx4&pxSZV$kyPYmRW>;v!VX9NT^;MzeLk*>Pj4$F94D4<&<C}SNZB&/T<F5D`@5pBqq<<whP%wL",
     PAYPAL_CLIENT_ID:
       "A5Fs1Wc4YpL0ZLHZ9Y6g-ZfbxHvdAb3IlP.pUbTKb7JZtRdWKQ2HxEJI",
-    CLOUD_UPDATE_PRESET: "nzkx4mre",
+    CLOUD_UPDATE_PRESET: "cuvelier",
     CLOUD_NAME: "dfqoyvi4w",
-    CLOUD_API: "https://api.cloudinary.com/v1_1/dfqoyvi4w",
+    CLOUD_API: "https://api.cloudinary.com/v1_1/dfqoyvi4w/image/upload",
   },
 };
+
+//#11

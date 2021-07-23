@@ -169,7 +169,7 @@ const ProductsManager = () => {
             </div>
 
             <div className="col-sm-6">
-              <label htmlFor="price">In Stock</label>
+              <label htmlFor="price">En stock</label>
               <input
                 type="number"
                 name="inStock"
