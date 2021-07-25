@@ -1,4 +1,7 @@
+const withImages = require("next-images");
+
 module.exports = {
+  ...withImages(),
   env: {
     BASE_URL: "http://localhost:3000",
     MONGODB_URL:
@@ -11,6 +14,9 @@ module.exports = {
     CLOUD_UPDATE_PRESET: "cuvelier",
     CLOUD_NAME: "dfqoyvi4w",
     CLOUD_API: "https://api.cloudinary.com/v1_1/dfqoyvi4w/image/upload",
+  },
+  future: {
+    webpack5: true,
   },
 };
 

@@ -1,12 +1,14 @@
 import Head from "next/head";
 import { useState, useContext, useEffect } from "react";
 import { DataContext } from "../store/GlobalState";
+import Hero from "../components/Hero/Hero";
 
 import { getData } from "../utils/fetchData";
 import ProductItem from "../components/product/ProductItem";
 import filterSearch from "../utils/filterSearch";
 import { useRouter } from "next/router";
 import Filter from "../components/Filter";
+import ThreeBox from "../components/ThreeBox/ThreeBox";
 
 const Home = (props) => {
   const [products, setProducts] = useState(props.products);
@@ -66,6 +68,9 @@ const Home = (props) => {
         <title>Home Page</title>
       </Head>
 
+      <Hero />
+
+      <ThreeBox />
       <Filter state={state} />
 
       {auth.user && auth.user.role === "admin" && (
