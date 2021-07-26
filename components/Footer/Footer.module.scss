@@ -1,5 +1,8 @@
 @import "../../styles/abstracts/variables";
 @import "../../styles/abstracts/mixins";
+.full {
+  position: relative;
+}
 
 .container {
   width: 100%;
@@ -8,10 +11,13 @@
 }
 .footer {
   background-color: $color-primary-light;
-  padding: 10rem 0;
+  padding-top: 10rem;
   font-size: 1.4rem;
   color: $color-white;
-
+  position: absolute;
+  top: -70px;
+  width: 100%;
+  z-index: -1;
   @include respond(tab-port) {
     padding: 8rem 0;
   }
@@ -81,6 +87,51 @@
       text-align: center;
       width: 100%;
       float: none;
+    }
+  }
+}
+
+.headingPrimary {
+  font-family: "Staatliches", cursive;
+  font-style: italic;
+  font-weight: bold;
+  line-height: 1.7;
+  color: white;
+  text-transform: uppercase;
+  backface-visibility: hidden; /* remove animation shaking anim */
+  width: 20rem;
+  margin: 0 auto;
+
+  text-shadow: 2px 2px 0 $color-primary-dark, 2px -2px 0 $color-primary-dark,
+    -2px 2px 0 $color-primary-dark, -2px -2px 0 $color-primary-dark,
+    2px 0px 0 $color-primary-dark, 0px 2px 0 $color-primary-dark,
+    -2px 0px 0 $color-primary-dark, 0px -2px 0 $color-primary-dark,
+    2px 2px 2px rgba(206, 89, 55, 0);
+  &__main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 1rem;
+
+    animation: moveInLeft 1s ease-out; /*duration timing-function delay iteration-count direction fill-mode;*/
+
+    @media (max-width: 37.5em) {
+      //phone 600px
+      letter-spacing: 1rem;
+      font-family: 5rem;
+    }
+  }
+
+  &__sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+
+    animation: moveInRight 1s ease-out; /*duration timing-function delay iteration-count direction fill-mode;*/
+    @media (max-width: 37.5em) {
+      //phone 600px
+      letter-spacing: 0.5rem;
     }
   }
 }
