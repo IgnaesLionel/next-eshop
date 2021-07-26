@@ -2,7 +2,7 @@
 @import "../../styles/abstracts/variables";
 
 .custom {
-  width: 120px;
+  width: 130px;
   height: 35px;
   color: $color-primary-light;
   border-radius: 3px;
@@ -25,10 +25,13 @@
 }
 
 .btn {
-  background: $color-primary;
+  background: $color-primary-light;
   border: none;
   color: $colorGreyLight1;
   z-index: 20;
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  border-radius: 5px;
 }
 .btn:after {
   position: absolute;
@@ -65,7 +68,8 @@
 }
 
 .activeBtn {
-  background: $color-primary-light;
+  background: $color-primary;
   font-weight: bold;
   color: white;
+  border-color: white;
 }

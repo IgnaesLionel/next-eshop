@@ -9,8 +9,8 @@
   height: 85vh;
   background-image: linear-gradient(
       to right bottom,
-      rgba($color-primary-light, 0.5),
-      rgba($color-primary-dark, 0.5)
+      rgba($color-primary-light, 0.1),
+      rgba($color-primary-dark, 0.1)
     ),
     url(./back-small.jpg);
   background-size: cover; /* resize */
@@ -64,16 +64,21 @@
 }
 
 .headingPrimary {
-  color: $color-white;
+  color: white;
   text-transform: uppercase;
   backface-visibility: hidden; /* remove animation shaking anim */
+  margin-top: 10rem;
   margin-bottom: 6rem;
-
+  text-shadow: 2px 2px 0 $color-primary-dark, 2px -2px 0 $color-primary-dark,
+    -2px 2px 0 $color-primary-dark, -2px -2px 0 $color-primary-dark,
+    2px 0px 0 $color-primary-dark, 0px 2px 0 $color-primary-dark,
+    -2px 0px 0 $color-primary-dark, 0px -2px 0 $color-primary-dark,
+    2px 2px 2px rgba(206, 89, 55, 0);
   &__main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 2.5rem;
+    letter-spacing: 1rem;
 
     animation: moveInLeft 1s ease-out; /*duration timing-function delay iteration-count direction fill-mode;*/
 

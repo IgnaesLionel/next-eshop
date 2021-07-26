@@ -19,36 +19,34 @@ const Footer00 = () => {
       </div>
 
       <div className={classes.container}>
-        <div className="col-1-of-2">
-          <div className={classes.footer__navigation}>
-            <ul>
-              <li className={classes.footer__item}>
-                <a href="#" className={classes.footer__link}>
-                  Compagny
-                </a>
-              </li>
-              <li className={classes.footer__item}>
-                <a href="#" className={classes.footer__link}>
-                  Contact us
-                </a>
-              </li>
-              <li className={classes.footer__item}>
-                <a href="#" className={classes.footer__link}>
-                  Carrers
-                </a>
-              </li>
-              <li className={classes.footer__item}>
-                <a href="#" className={classes.footer__link}>
-                  Privacy policy
-                </a>
-              </li>
-              <li className={classes.footer__item}>
-                <a href="#" className={classes.footer__link}>
-                  Terms
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div className={classes.footer__navigation}>
+          <ul>
+            <li className={classes.footer__item}>
+              <a href="/" className={classes.footer__link}>
+                Accueil
+              </a>
+            </li>
+            <li className={classes.footer__item}>
+              <a href="/produits" className={classes.footer__link}>
+                Nos produits
+              </a>
+            </li>
+            <li className={classes.footer__item}>
+              <a href="/moyens" className={classes.footer__link}>
+                Nos moyens
+              </a>
+            </li>
+            <li className={classes.footer__item}>
+              <a href="/actualites" className={classes.footer__link}>
+                Nos actualités
+              </a>
+            </li>
+            <li className={classes.footer__item}>
+              <a href="/contact" className={classes.footer__link}>
+                Contactez-nous
+              </a>
+            </li>
+          </ul>
         </div>
         <div className="col-1-of-2">
           <p className={classes.footer__copyright}>

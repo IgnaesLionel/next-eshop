@@ -25,7 +25,7 @@ const Header = () => {
         <BtnPulseSass
           text="Découvrez nos produits!"
           color="white"
-          path="#section-tours"
+          path="/produits"
         />
       </div>
     </header>

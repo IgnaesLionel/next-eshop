@@ -11,6 +11,12 @@
 }
 .sectionFeatures {
   padding: 20rem 0;
+  border-style: solid;
+  border: solid;
+  border-width: 10px;
+  border-left: 0px;
+  border-right: 0px;
+  border-color: $color-primary-dark;
   background-image: linear-gradient(
       to right bottom,
       rgba($color-primary-light, 0.8),
@@ -31,7 +37,7 @@
 }
 
 .featureBox {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 1);
   font-size: 1.5rem;
   padding: 2.5rem;
   text-align: center;
@@ -39,6 +45,7 @@
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: transform 0.3s;
   position: relative;
+  color: black;
 
   @include respond(tab-port) {
     padding: 2rem;
@@ -80,4 +87,24 @@
   position: absolute;
   right: -25px;
   top: -25px;
+}
+
+.title {
+  font-family: "Staatliches", cursive;
+  background-color: rgba(255, 255, 255, 1);
+  font-weight: bold;
+  line-height: 1.7;
+  margin: 0 auto;
+  color: black;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 3em;
+  font-size: 3em;
+  padding: 1em;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+  &:hover {
+    transform: scale(1.1) skewY(+7deg);
+  }
 }

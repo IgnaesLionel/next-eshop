@@ -5,7 +5,7 @@
   text-align: center;
   position: -webkit-sticky;
   position: sticky;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
 
   top: 6px;
   z-index: 3000;
@@ -21,7 +21,7 @@
 .container {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 @media screen and (max-width: 1000px) {

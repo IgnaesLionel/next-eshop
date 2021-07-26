@@ -10,7 +10,11 @@ import img4 from "./rouleau.png";
 const ForSquareInfo = () => {
   return (
     <section className={classes.sectionFeatures}>
-      {" "}
+      <h4 className={`${classes.title} `}>
+        Ouvert aux particuliers, aux professionnels de la boulangerie,
+        pâtisserie, cuisine et de la restauration <br /> nous vous accompagnons
+        depuis plus de 50 ans !
+      </h4>
       <div className={classes.container}>
         <div className={classes.content}>
           <div className={classes.featureBox}>
@@ -26,8 +30,8 @@ const ForSquareInfo = () => {
             <p className={classes.featureBox__text}>
               {" "}
               Cuvelier vous propose toute une gamme complète d'ingredients de
-              qualité ainsi que du matériel professionel pour tout artisants
-              boulangers.
+              haute qualité ainsi que du matériel professionel pour tout
+              artisants boulangers.
             </p>
           </div>
         </div>
@@ -43,9 +47,11 @@ const ForSquareInfo = () => {
               Pâtisserie
             </h3>
             <p className={classes.featureBox__text}>
-              Nos clients ont la possibilité de fabriquer leurs pâtiseries grâce
-              a un tres grand choix de matières premiere, de la complèter avec
-              des produits semi-fini ou plus élaboré.
+              {" "}
+              Des Arômes, des fruits, du chocolats et bien plus encore, pour
+              aider nos clients a fabriquer ou a completer leurs pâtiseries
+              grâce a un tres grand choix de matières premiere, de produits
+              semi-fini ou plus élaboré.
             </p>
           </div>
         </div>
@@ -63,7 +69,8 @@ const ForSquareInfo = () => {
             <p className={classes.featureBox__text}>
               {" "}
               Nous vous proposons des produits répondant à la demande du monde
-              de la restauration (Aliments, sauce, emballages, conditionnements)
+              de la restauration (Aliments, sauce, emballages, conditionnements,
+              articles de décoration...)
             </p>
           </div>
         </div>
@@ -82,7 +89,7 @@ const ForSquareInfo = () => {
               {" "}
               Cuvelier c'est aussi un accompagnement en vous proposant toute une
               gamme de matériels adapter à tout professionnels des métiers de
-              bouche.
+              bouche, des vêtements de travail à la coutellerie .
             </p>
           </div>
         </div>

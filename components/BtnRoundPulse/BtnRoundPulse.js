@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./BtnRoundPulse.module.scss";
+import Link from "next/link";
 
 const BtnPulse = ({ text, color, path }) => {
   let selectedColor = "";
@@ -12,12 +13,11 @@ const BtnPulse = ({ text, color, path }) => {
     selectedColor = classes.btn__green;
   }
   return (
-    <a
-      href={`${path}`}
-      className={`${classes.btn} ${selectedColor} ${classes.btn__animated}`}
-    >
-      {text}
-    </a>
+    <Link href={`${path}`}>
+      <a className={`${classes.btn} ${selectedColor} ${classes.btn__animated}`}>
+        {text}
+      </a>
+    </Link>
   );
 };
 
