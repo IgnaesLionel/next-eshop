@@ -1,0 +1,35 @@
+.navigation {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: white;
+
+  top: 6px;
+  z-index: 3000;
+}
+
+.burgerBtn {
+  position: sticky;
+  top: 0px;
+
+  z-index: 3000;
+  display: none;
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 1000px) {
+  .navigation {
+    display: none;
+  }
+
+  .burgerBtn {
+    display: block;
+  }
+}

@@ -18,7 +18,7 @@ const Footer00 = () => {
         </picture>
       </div>
 
-      <div className="row">
+      <div className={classes.container}>
         <div className="col-1-of-2">
           <div className={classes.footer__navigation}>
             <ul>
@@ -54,9 +54,10 @@ const Footer00 = () => {
           <p className={classes.footer__copyright}>
             Réalisation
             <a href="#" className={classes.footer__link}>
-              Ignaes Lionel
+              Lionel Ignaes
             </a>
-            Copyright &copy;
+            <br></br>
+            Copyright Cuvelier&copy;
           </p>
         </div>
       </div>

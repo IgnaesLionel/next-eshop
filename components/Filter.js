@@ -27,7 +27,10 @@ const Filter = ({ state }) => {
   }, [search]);
 
   return (
-    <div className="input-group">
+    <div
+      className="input-group"
+      style={{ marginTop: "100px", overflow: "hidden" }}
+    >
       <div className="input-group-prepend col-md-2 px-0 mt-2">
         <select
           className="custom-select text-capitalize"

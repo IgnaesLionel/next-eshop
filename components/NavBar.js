@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { DataContext } from "../store/GlobalState";
 import Cookie from "js-cookie";
+import classes from "./NavBar.module.scss";
+import NavBtn from "./NavBtn/NavBtn";
 
 function NavBar() {
   const router = useRouter();
@@ -81,10 +83,40 @@ function NavBar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link href="/">
-        <a className="navbar-brand">Cuvelier</a>
-      </Link>
+    <nav className={`${classes.navigation} navbar navbar-expand-lg `}>
+      <div className={classes.burgerBtn}></div>
+      <div className={classes.container}>
+        <Link href="/">
+          <a>
+            <NavBtn url="/" name="Cuvelier" />
+          </a>
+        </Link>
+        <Link href="/produits">
+          <a>
+            <NavBtn url="/produits" name="Nos produits" />
+          </a>
+        </Link>
+        <Link href="/moyens">
+          <a className="a">
+            <NavBtn url="/moyens" name="Nos moyens" />
+          </a>
+        </Link>
+        <Link href="/actualites">
+          <a>
+            <NavBtn
+              url="/actualites"
+              name="Nos actualités
+            "
+            />
+          </a>
+        </Link>
+        <Link href="/contact">
+          <a>
+            <NavBtn url="/contact" name="Contactez-nous" />
+          </a>
+        </Link>
+      </div>
+
       <button
         className="navbar-toggler"
         type="button"

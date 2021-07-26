@@ -1,10 +1,16 @@
 @import "../../styles/abstracts/variables";
 @import "../../styles/abstracts/mixins";
 
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
 .footer {
-  background-color: #333;
+  background-color: $color-primary-dark;
   padding: 10rem 0;
   font-size: 1.4rem;
+  color: $color-white;
 
   @include respond(tab-port) {
     padding: 8rem 0;
@@ -55,7 +61,6 @@
       text-transform: uppercase;
       display: inline-block;
       transition: all 0.2s;
-      background-color: #333;
     }
 
     &:hover,

@@ -2,15 +2,25 @@
 @import "../../styles/abstracts/variables";
 
 .header {
+  font-family: "Staatliches", cursive;
+  font-style: italic;
+  font-weight: bold;
+  line-height: 1.7;
   height: 85vh;
   background-image: linear-gradient(
       to right bottom,
-      rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8)
+      rgba($color-primary-light, 0.5),
+      rgba($color-primary-dark, 0.5)
     ),
     url(./back-small.jpg);
   background-size: cover; /* resize */
   background-position: top;
+
+  &__logoBox {
+    height: 100px;
+
+    width: 100px;
+  }
 
   position: relative; /* for logobox, on absolute */
   font-size: 62.5%; /* fix for all rem*/
@@ -26,8 +36,8 @@
     only screen and (min-width: 125em) {
     background-image: linear-gradient(
         to right bottom,
-        rgba($color-primary-light, 0.8),
-        rgba($color-primary-dark, 0.8)
+        rgba($color-primary-light, 0.5),
+        rgba($color-primary-dark, 0.5)
       ),
       url(./back.jpg);
   }
@@ -41,9 +51,6 @@
     position: absolute;
     top: 4rem;
     left: 4rem;
-  }
-  &__logo {
-    height: 3.5rem;
   }
 
   &__textBox {
@@ -66,7 +73,7 @@
     display: block;
     font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 3.5rem;
+    letter-spacing: 2.5rem;
 
     animation: moveInLeft 1s ease-out; /*duration timing-function delay iteration-count direction fill-mode;*/
 
@@ -81,7 +88,7 @@
     display: block;
     font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 1.75rem;
+    letter-spacing: 0.15rem;
 
     animation: moveInRight 1s ease-out; /*duration timing-function delay iteration-count direction fill-mode;*/
     @media (max-width: 37.5em) {
@@ -121,4 +128,22 @@
     opacity: 1;
     transform: translate(0);
   }
+}
+
+.annee {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6em;
+  width: 8em;
+  font-size: 2rem;
+  right: 5rem;
+  bottom: 20rem;
+  color: $color-primary-dark;
+  background-color: $color-white;
+  border-radius: 50%;
+  text-align: center;
+  border: 0.5rem solid;
+  border-color: $color-primary-dark;
 }
