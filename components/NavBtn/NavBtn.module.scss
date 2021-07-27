@@ -30,7 +30,7 @@
   color: $colorGreyLight1;
   z-index: 20;
   border-style: solid;
-  border-color: rgb(0, 0, 0);
+  border-color: white;
   border-radius: 5px;
 }
 .btn:after {
@@ -71,5 +71,5 @@
   background: $color-primary;
   font-weight: bold;
   color: white;
-  border-color: white;
+  border-color: rgb(55, 142, 255);
 }
