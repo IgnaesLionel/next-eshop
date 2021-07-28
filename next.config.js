@@ -3,7 +3,7 @@ const withImages = require("next-images");
 module.exports = {
   ...withImages(),
   env: {
-    BASE_URL: "http://localhost:3000",
+    BASE_URL: "http://localhost:3025",
     MONGODB_URL:
       "mongodb+srv://frakzor:1DebianHell1@cluster0.1jdnj.mongodb.net/Cuvelier?retryWrites=true&w=majority",
     ACCESS_TOKEN_SECRET: "Ze5(c'vuhj88hH$<8`&EK?3^S'/[pqM6%:4Rfj=LZZ3xC&_",
