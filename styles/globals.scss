@@ -87,6 +87,13 @@ textarea {
   }
 }
 
+button {
+  &:focus {
+    outline: 0;
+    border-bottom-color: #3fc1c9;
+  }
+}
+
 input[type="checkbox"],
 input[type="radio"] {
   margin-right: 8px;

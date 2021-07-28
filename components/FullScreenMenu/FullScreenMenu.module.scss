@@ -2,17 +2,16 @@
 @import "../../styles/abstracts/mixins";
 
 .navigation {
+  display: none;
   &__checkbox {
     display: none;
   }
   &__nav {
     height: 100vh;
-
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1500;
-
     opacity: 0;
     width: 0;
     transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -42,12 +41,12 @@
 
     @include respond(tab-port) {
       top: 4rem;
-      right: 4rem;
+      right: 15rem;
     }
 
     @include respond(phone) {
-      top: 3.5rem;
-      right: 3.5rem;
+      top: 4.5rem;
+      right: 5.5rem;
     }
   }
   &__background {
@@ -67,12 +66,12 @@
 
     @include respond(tab-port) {
       top: 4.5rem;
-      right: 4.5rem;
+      right: 15.5rem;
     }
 
     @include respond(phone) {
-      top: 3.5rem;
-      right: 3.5rem;
+      top: 4.5rem;
+      right: 5.5rem;
     }
   }
 
@@ -167,5 +166,9 @@
   &__checkbox:checked + &__button &__icon::after {
     transform: rotate(-135deg);
     top: 0;
+  }
+
+  @include respond(tab-port) {
+    display: inline;
   }
 }

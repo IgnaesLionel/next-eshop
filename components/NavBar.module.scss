@@ -1,14 +1,21 @@
+@import "../styles/abstracts/variables";
+@import "../styles/abstracts/mixins";
+
 .navigation {
   display: flex;
-  align-content: center;
-  justify-content: center;
+
   text-align: center;
   position: -webkit-sticky;
   position: sticky;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: $color-primary-dark;
+  border-bottom: 4px solid $color-primary;
 
-  top: 6px;
+  top: -1px;
   z-index: 3000;
+
+  @include respond(tab-port) {
+    display: none;
+  }
 }
 
 .burgerBtn {
@@ -21,15 +28,5 @@
 .container {
   width: 100%;
   display: flex;
-  justify-content: center;
-}
-
-@media screen and (max-width: 1000px) {
-  .navigation {
-    display: none;
-  }
-
-  .burgerBtn {
-    display: block;
-  }
+  justify-content: space-evenly;
 }
