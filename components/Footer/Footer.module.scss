@@ -10,7 +10,7 @@
   justify-content: space-around;
 }
 .footer {
-  background-color: $color-primary-light;
+  background-color: $color-primary-dark;
   padding-top: 10rem;
   font-size: 1.4rem;
   color: $color-white;
@@ -102,10 +102,10 @@
   width: 20rem;
   margin: 0 auto;
 
-  text-shadow: 2px 2px 0 $color-primary-dark, 2px -2px 0 $color-primary-dark,
-    -2px 2px 0 $color-primary-dark, -2px -2px 0 $color-primary-dark,
-    2px 0px 0 $color-primary-dark, 0px 2px 0 $color-primary-dark,
-    -2px 0px 0 $color-primary-dark, 0px -2px 0 $color-primary-dark,
+  text-shadow: 2px 2px 0 $color-primary-light, 2px -2px 0 $color-primary-light,
+    -2px 2px 0 $color-primary-light, -2px -2px 0 $color-primary-light,
+    2px 0px 0 $color-primary-light, 0px 2px 0 $color-primary-light,
+    -2px 0px 0 $color-primary-light, 0px -2px 0 $color-primary-light,
     2px 2px 2px rgba(206, 89, 55, 0);
   &__main {
     display: block;

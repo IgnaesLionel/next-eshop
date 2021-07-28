@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useState, useContext, useEffect } from "react";
 import { DataContext } from "../store/GlobalState";
+import classes from "../styles/product.module.scss";
 
 import { useRouter } from "next/router";
 import { getData } from "../utils/fetchData";
@@ -62,7 +63,7 @@ const Home = (props) => {
   };
 
   return (
-    <div className="containerPage">
+    <div className={classes.containerPage}>
       <Head>
         <title>Nos Produits</title>
       </Head>
@@ -96,9 +97,9 @@ const Home = (props) => {
         </div>
       )}
 
-      <div className="products">
+      <div className={classes.products}>
         {products.length === 0 ? (
-          <h2>No Products</h2>
+          <h2>Pas de produits trouvés</h2>
         ) : (
           products.map((product) => (
             <ProductItem

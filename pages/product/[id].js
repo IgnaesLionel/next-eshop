@@ -16,10 +16,11 @@ const DetailProduct = (props) => {
     return "";
   };
 
+  console.log(props);
   return (
     <div className="row detail_page">
       <Head>
-        <title>Detail Product</title>
+        <title>{`${product.title}`}</title>
       </Head>
 
       <div className="col-md-6">
@@ -66,7 +67,7 @@ const DetailProduct = (props) => {
           className="btn btn-dark d-block my-3 px-5"
           onClick={() => dispatch(addToCart(product, cart))}
         >
-          Achter
+          Acheter
         </button>
       </div>
     </div>

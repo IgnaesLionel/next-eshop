@@ -28,8 +28,14 @@ const Filter = ({ state }) => {
 
   return (
     <div
-      className="input-group"
-      style={{ marginTop: "100px", overflow: "hidden" }}
+      className="input-group  d-flex  justify-content-center"
+      style={{
+        paddingTop: "30px",
+        width: "80%",
+        margin: "0 auto",
+
+        overflow: "hidden",
+      }}
     >
       <div className="input-group-prepend col-md-2 px-0 mt-2">
         <select

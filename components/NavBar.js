@@ -61,16 +61,24 @@ function NavBar() {
               borderRadius: "50%",
               width: "30px",
               height: "30px",
+              color: "white",
               transform: "translateY(-3px)",
               marginRight: "3px",
             }}
           />{" "}
-          {auth.user.name}
+          <span
+            style={{
+              color: "white",
+            }}
+          >
+            {" "}
+            {auth.user.name}
+          </span>
         </a>
 
         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <Link href="/profile">
-            <a className="dropdown-item">Profil</a>
+            <a className="dropdown-item">Mon Compte</a>
           </Link>
           {auth.user.role === "admin" && adminRouter()}
           <div className="dropdown-divider"></div>
@@ -115,50 +123,35 @@ function NavBar() {
             <NavBtn url="/contact" name="Contactez-nous" />
           </a>
         </Link>
+        <Link href="/cart">
+          <a className={"nav-link" + isActive("/cart")}>
+            <i
+              className={`fas fa-shopping-cart fa-2x position-relative ${classes.cart}`}
+              aria-hidden="true"
+            >
+              <span
+                className="position-absolute"
+                style={{
+                  padding: "3px 6px",
+                  background: "#ed143d",
+                  borderRadius: "50%",
+                  top: "-3px",
+                  right: "2px",
+                  color: "white",
+                  fontSize: "14px",
+                }}
+              >
+                {cart.length}
+              </span>
+            </i>{" "}
+          </a>
+        </Link>
       </div>
-
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
       <div
         className="collapse navbar-collapse justify-content-end"
         id="navbarNavDropdown"
       >
         <ul className="navbar-nav p-1">
-          <li className="nav-item">
-            <Link href="/cart">
-              <a className={"nav-link" + isActive("/cart")}>
-                <i
-                  className="fas fa-shopping-cart position-relative"
-                  aria-hidden="true"
-                >
-                  <span
-                    className="position-absolute"
-                    style={{
-                      padding: "3px 6px",
-                      background: "#ed143dc2",
-                      borderRadius: "50%",
-                      top: "-10px",
-                      right: "-10px",
-                      color: "white",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {cart.length}
-                  </span>
-                </i>{" "}
-                Panier
-              </a>
-            </Link>
-          </li>
           {Object.keys(auth).length === 0 ? (
             <li className="nav-item">
               <Link href="/signin">

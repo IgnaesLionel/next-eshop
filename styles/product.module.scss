@@ -1,0 +1,21 @@
+@import "../styles/abstracts/variables";
+@import "../styles/abstracts/mixins";
+.products {
+  display: flex;
+  /*   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+  justify-content: space-evenly;
+  width: 90%;
+  flex-wrap: wrap;
+  margin: 80px 50px;
+}
+
+/* --------- Detail Product ----------- */
+.detail_page .img-thumbnail.active {
+  border-color: orangered;
+  padding: 2px;
+}
+
+.containerPage {
+  background-color: $color-primary-light;
+  border-bottom: 10px solid $color-primary;
+}

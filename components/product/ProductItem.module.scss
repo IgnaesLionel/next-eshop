@@ -1,0 +1,45 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+
+.card {
+  margin: 10px 2rem;
+  background-color: white;
+  border: 3px solid $color-primary;
+  border-radius: 15px;
+  -webkit-box-shadow: 11px 11px 7px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 11px 11px 7px -4px rgba(0, 0, 0, 0.5);
+  padding: 5px 5px 5px 0px;
+  width: 15rem;
+  min-width: 15rem;
+}
+.cardImgTop {
+  width: 100%;
+}
+.cardTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.5rem;
+}
+.cardText {
+  height: 70px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.number {
+  font-size: 1.5rem;
+}
+.numberBtn {
+  font-size: 1.5rem;
+  width: 30px;
+  height: 30px;
+}
+
+.quantityBox {
+  border: 1px solid;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
