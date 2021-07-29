@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { decrease, increase } from "../store/Actions";
-
+import { decrease, increase } from "../../store/Actions";
+import classes from "./CartItem.module.css";
 const CartItem = ({ item, dispatch, cart }) => {
   return (
-    <tr>
+    <tr className={`${classes.box} align-middle`}>
       <td style={{ width: "100px", overflow: "hidden" }}>
         <img
           src={item.images[0].url}
@@ -28,7 +28,7 @@ const CartItem = ({ item, dispatch, cart }) => {
         )}
       </td>
 
-      <td className="align-middle" style={{ minWidth: "150px" }}>
+      <td style={{ minWidth: "150px" }}>
         <button
           className="btn btn-outline-secondary"
           onClick={() => dispatch(decrease(cart, item._id))}

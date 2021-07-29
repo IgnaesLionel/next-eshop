@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useContext, useState, useEffect } from "react";
 import { DataContext } from "../store/GlobalState";
-import CartItem from "../components/CartItem";
+import CartItem from "../components/CartItem/CartItem";
 import Link from "next/link";
 import { getData, postData } from "../utils/fetchData";
 import { useRouter } from "next/router";
@@ -31,12 +31,13 @@ const Cart = () => {
   }, [cart]);
 
   useEffect(() => {
-    const cartLocal = JSON.parse(localStorage.getItem("__next__cart01__devat"));
+    const cartLocal = JSON.parse(localStorage.getItem(" cuvelier__cart"));
     if (cartLocal && cartLocal.length > 0) {
       let newArr = [];
       const updateCart = async () => {
         for (const item of cartLocal) {
           const res = await getData(`product/${item._id}`);
+
           const { _id, title, images, price, inStock, sold } = res.product;
           if (inStock > 0) {
             newArr.push({

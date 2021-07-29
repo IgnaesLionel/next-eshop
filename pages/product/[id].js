@@ -16,7 +16,6 @@ const DetailProduct = (props) => {
     return "";
   };
 
-  console.log(props);
   return (
     <div className="row detail_page">
       <Head>

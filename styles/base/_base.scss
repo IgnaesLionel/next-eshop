@@ -43,3 +43,13 @@ body {
 a:hover {
   color: white;
 }
+
+.h1Style {
+  color: white;
+  font-size: 3rem;
+  padding: 60px 0px;
+}
+
+::placeholder {
+  color: rgb(211, 211, 211);
+}

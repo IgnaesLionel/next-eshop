@@ -67,7 +67,9 @@ const Home = (props) => {
       <Head>
         <title>Nos Produits</title>
       </Head>
-
+      <h1 className="h1Style" style={{ textAlign: "center" }}>
+        Nos produits
+      </h1>
       <Filter state={state} />
 
       {auth.user && auth.user.role === "admin" && (

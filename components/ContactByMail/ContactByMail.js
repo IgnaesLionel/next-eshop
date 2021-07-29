@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "./ContactByMail.module.css";
+import classes from "./ContactByMail.module.scss";
 import { init } from "emailjs-com";
 import Image from "next/image";
 
@@ -37,7 +37,6 @@ const ContactByMail = () => {
 
   return (
     <div>
-      <h1 className="h1-1"> Nous contacter </h1>
       <br />
       <div>
         <header>

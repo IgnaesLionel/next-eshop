@@ -12,7 +12,7 @@ const Header = () => {
         depuis 1977 !
       </div>
       <div className={classes.header__logoBox}>
-        <Image src={logo} width={200} height={200} alt="logo" />{" "}
+        <Image src={logo} width={400} height={400} alt="logo" />{" "}
       </div>
       <div className={classes.header__textBox}>
         <h1 className={classes.headingPrimary}>

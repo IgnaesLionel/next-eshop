@@ -8,6 +8,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
 .footer {
   background-color: $color-primary-dark;
@@ -134,4 +135,10 @@
       letter-spacing: 0.5rem;
     }
   }
+}
+
+.Logo {
+  position: absolute;
+  right: 20%;
+  bottom: 100%;
 }

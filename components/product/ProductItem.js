@@ -1,17 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useContext } from "react";
 import { DataContext } from "../../store/GlobalState";
-import { addToCart } from "../../store/Actions";
+import { addToCart, refreshNumber } from "../../store/Actions";
+
 import classes from "./ProductItem.module.scss";
 
 const ProductItem = ({ product, handleCheck }) => {
   const { state, dispatch } = useContext(DataContext);
   const { cart, auth } = state;
 
-  const [number, setNumber] = useState(0);
+  const [number, setNumber] = useState(1);
 
-  /*   onClick={() => dispatch(increase(cart, product._id))} */
+  useEffect(() => {
+    const check = () => {
+      cart.map((item) => {
+        if (item._id == product._id) {
+          setNumber(item.quantity);
+        }
+        return;
+      });
+    };
+
+    check();
+  }, []);
 
   const quantity = (action) => {
     switch (action) {
@@ -29,10 +41,11 @@ const ProductItem = ({ product, handleCheck }) => {
         break;
     }
   };
-
-  const addThisItems = () => {
-    dispatch(addToCart(product, cart));
-    console.log(number);
+  /*   onClick={() => dispatch(increase(cart, product._id))} */
+  const addThisItems = (number) => {
+    refreshNumber(cart, product._id, number);
+    dispatch(addToCart(product, cart, number));
+    console.log("suite");
   };
 
   const userLink = () => {
@@ -42,7 +55,7 @@ const ProductItem = ({ product, handleCheck }) => {
           className="btn btn-success"
           style={{ marginLeft: "5px", flex: 1 }}
           disabled={product.inStock === 0 ? true : false}
-          onClick={() => addThisItems()}
+          onClick={() => addThisItems(number)}
         >
           Acheter
           <i
@@ -125,7 +138,7 @@ const ProductItem = ({ product, handleCheck }) => {
         <div>
           <div>
             <tr>
-              <td className="align-middle" style={{ minWidth: "150px" }}>
+              <td className={`${classes.center}`} style={{ minWidth: "150px" }}>
                 <button
                   className="btn btn-outline-secondary"
                   onClick={() => quantity("moins")}
@@ -149,11 +162,18 @@ const ProductItem = ({ product, handleCheck }) => {
             </tr>
           </div>
 
-          <h6 className="text-danger">{product.price}€ TTC</h6>
+          <h6 className="text-dark" style={{ paddingLeft: "6px" }}>
+            Prix : {product.price}€ TTC
+          </h6>
+
           {product.inStock > 0 ? (
-            <h6 className="text-danger">En stock: {product.inStock}</h6>
+            <h6 className="text-dark" style={{ paddingLeft: "6px" }}>
+              En stock: {product.inStock}
+            </h6>
           ) : (
-            <h6 className="text-danger">En rupture</h6>
+            <h6 className="text-danger" style={{ paddingLeft: "6px" }}>
+              En rupture
+            </h6>
           )}
         </div>
 

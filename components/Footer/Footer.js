@@ -1,5 +1,7 @@
 import React from "react";
 import classes from "./Footer.module.scss";
+import Logo from "../../public/images/Logo.png";
+import Image from "next/image";
 
 const Footer00 = () => {
   return (
@@ -49,6 +51,14 @@ const Footer00 = () => {
               <br></br>
               Copyright Cuvelier&copy;
             </p>
+          </div>
+          <div className={classes.Logo}>
+            <Image
+              src={Logo}
+              height={100}
+              width={100}
+              alt="Logo BackEurop"
+            ></Image>
           </div>
         </div>
       </footer>

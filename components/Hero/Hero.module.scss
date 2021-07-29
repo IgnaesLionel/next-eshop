@@ -17,9 +17,8 @@
   background-position: top;
 
   &__logoBox {
-    height: 100px;
-
-    width: 100px;
+    height: 40%;
+    width: 40%;
   }
 
   position: relative; /* for logobox, on absolute */
@@ -49,8 +48,15 @@
 
   &__logoBox {
     position: absolute;
-    top: 4rem;
-    left: 4rem;
+    top: 20%;
+    left: 50%;
+    width: 30%;
+    max-width: 25%;
+    transform: translate(-50%, -50%);
+
+    @include respond(phone) {
+      top: 32%;
+    }
   }
 
   &__textBox {
