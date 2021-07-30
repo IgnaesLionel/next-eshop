@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { DataContext } from "../store/GlobalState";
 import Cookie from "js-cookie";
 import classes from "./NavBar.module.scss";
 import NavBtn from "./NavBtn/NavBtn";
+import CartItemModal from "../components/CartItemModal/CartItemModal";
 
 function NavBar() {
+  const [showModal, setShowModal] = useState(false);
+
   const router = useRouter();
   const { state, dispatch } = useContext(DataContext);
   const { auth, cart } = state;
@@ -25,6 +28,32 @@ function NavBar() {
     dispatch({ type: "AUTH", payload: {} });
     dispatch({ type: "NOTIFY", payload: { success: "Déconnection !" } });
     return router.push("/");
+  };
+
+  const addClasses = () => {
+    let cartModalShow = showModal ? `${classes.cartModalShow}` : null;
+
+    return cartModalShow;
+  };
+
+  const cartModal = () => {
+    return (
+      <div
+        className={`${classes.cartModal} ${addClasses()}`}
+        onMouseOver={() => setShowModal(true)}
+        onMouseLeave={() => setShowModal(false)}
+      >
+        {" "}
+        {cart.map((item) => (
+          <CartItemModal
+            key={item._id}
+            item={item}
+            dispatch={dispatch}
+            cart={cart}
+          />
+        ))}{" "}
+      </div>
+    );
   };
 
   const adminRouter = () => {
@@ -126,6 +155,7 @@ function NavBar() {
         <Link href="/cart">
           <a className={"nav-link" + isActive("/cart")}>
             <i
+              onMouseOver={() => setShowModal(true)}
               className={`fas fa-shopping-cart fa-2x position-relative ${classes.cart}`}
               aria-hidden="true"
             >
@@ -146,6 +176,7 @@ function NavBar() {
             </i>{" "}
           </a>
         </Link>
+        {cartModal()}
       </div>
       <div
         className="collapse navbar-collapse justify-content-end"

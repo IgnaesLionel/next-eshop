@@ -34,3 +34,19 @@
 .cart {
   color: white;
 }
+
+.cartModal {
+  width: auto;
+  height: auto;
+  background-color: white;
+  border: 3px solid $color-primary-dark;
+  position: absolute;
+  right: 100px;
+  top: 50px;
+  display: none;
+}
+
+.cartModalShow {
+  color: white;
+  display: block;
+}

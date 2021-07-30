@@ -7,7 +7,7 @@ const contact = () => {
     <div className={classes.contact}>
       <h1 className="h1Style">Contactez-nous</h1>
 
-      <h4>
+      <h4 style={{ color: "white" }}>
         Établissements Cuvelier 11 Rue des Corderies, <br /> Dunkerque, 59240,
         France
         <br /> Tél : Fax : 03 28 63 58 01 <br />

@@ -30,7 +30,7 @@ const Filter = ({ state }) => {
     <div
       className="input-group  d-flex  justify-content-center"
       style={{
-        paddingTop: "30px",
+        paddingTop: "0px",
         width: "80%",
         margin: "0 auto",
 
