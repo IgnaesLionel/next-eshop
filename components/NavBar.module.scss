@@ -40,13 +40,33 @@
   height: auto;
   background-color: white;
   border: 3px solid $color-primary-dark;
+  border-radius: 8px;
   position: absolute;
   right: 100px;
   top: 50px;
   display: none;
+  padding: 12px;
 }
 
 .cartModalShow {
   color: white;
   display: block;
+}
+
+.cartModalButton {
+  background-color: $color-primary-dark;
+  border: 3px solid $color-primary;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  color: white;
+  padding: 5px 10px;
+}
+
+.cartModalButton2 {
+  background-color: rgb(45, 194, 45);
+  border: 3px solid rgb(83, 180, 83);
+  border-radius: 25px;
+  font-size: 1.5rem;
+  color: white;
+  padding: 5px 10px;
 }
