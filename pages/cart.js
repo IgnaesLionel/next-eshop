@@ -5,18 +5,24 @@ import CartItem from "../components/CartItem/CartItem";
 import Link from "next/link";
 import { getData, postData } from "../utils/fetchData";
 import { useRouter } from "next/router";
+import { PayPalButton } from "react-paypal-button-v2";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Cart = () => {
   const { state, dispatch } = useContext(DataContext);
   const { cart, auth, orders } = state;
 
   const [total, setTotal] = useState(0);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
 
   const [address, setAddress] = useState("");
   const [mobile, setMobile] = useState("");
 
   const [callback, setCallback] = useState(false);
   const router = useRouter();
+  const stripe = await loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  );
 
   useEffect(() => {
     const getTotal = () => {
@@ -32,6 +38,7 @@ const Cart = () => {
 
   useEffect(() => {
     const cartLocal = JSON.parse(localStorage.getItem(" cuvelier__cart"));
+    console.log("start");
     if (cartLocal && cartLocal.length > 0) {
       let newArr = [];
       const updateCart = async () => {
@@ -57,6 +64,20 @@ const Cart = () => {
 
       updateCart();
     }
+
+    const addPaypalScript = () => {
+      const scriptPayPal = document.createElement("script");
+      scriptPayPal.src =
+        "https://www.paypal.com/sdk/js?client-id=AdqPpNH070_f5WiuGsgJb3ZnuaWp5xFnlBusRJqWwI3gSHZ-odjbQq4tRlQNG4oU2e_9i1ZACJ0RI-wo";
+      scriptPayPal.type = "text/javascript";
+      scriptPayPal.async = true;
+
+      scriptPayPal.onload = () => setScriptLoaded(true);
+
+      document.body.appendChild(scriptPayPal);
+    };
+
+    addPaypalScript();
   }, [callback]);
 
   const handlePayment = async () => {
@@ -117,13 +138,13 @@ const Cart = () => {
     );
 
   return (
-    <div className="row mx-auto">
+    <div style={{ minHeight: "100vh" }} className="row mx-auto">
       <Head>
         <title>Cart Page</title>
       </Head>
 
       <div className="col-md-8 text-secondary table-responsive my-3">
-        <h2 className="text-uppercase">Shopping Cart</h2>
+        <h2 className="text-uppercase">Votre panier</h2>
 
         <table className="table my-3">
           <tbody>
@@ -141,7 +162,7 @@ const Cart = () => {
 
       <div className="col-md-4 my-3 text-right text-uppercase text-secondary">
         <form>
-          <h2>Shipping</h2>
+          <h2>Livraison</h2>
 
           <label htmlFor="address">Addresse de livraison</label>
           <input
@@ -165,7 +186,7 @@ const Cart = () => {
         </form>
 
         <h3>
-          Total: <span className="text-danger">{total}€</span>
+          Total: <span className="text-danger">{total.toFixed(2)}€</span>
         </h3>
 
         <Link href={auth.user ? "#!" : "/signin"}>
@@ -173,6 +194,21 @@ const Cart = () => {
             Proceder au payement
           </a>
         </Link>
+
+        <div>
+          {scriptLoaded ? (
+            <PayPalButton
+              amount={total}
+              onSuccess={(details, data) => {
+                //save the transaction
+                // console.log(details);
+                addDonationInDB(details.payer.name.given_name);
+              }}
+            />
+          ) : (
+            <span>Loading...</span>
+          )}{" "}
+        </div>
       </div>
     </div>
   );

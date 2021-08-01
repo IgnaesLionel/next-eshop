@@ -30,6 +30,9 @@ function NavBar() {
     return router.push("/");
   };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   const addClasses = () => {
     let cartModalShow = showModal ? `${classes.cartModalShow}` : null;
 
@@ -43,7 +46,14 @@ function NavBar() {
         onMouseOver={() => setShowModal(true)}
         onMouseLeave={() => setShowModal(false)}
       >
-        {" "}
+        <button
+          onClick={() => {
+            handleCloseModal();
+          }}
+          className={`${classes.cartModalButton2}`}
+        >
+          Valider ma commande
+        </button>{" "}
         {cart.map((item) => (
           <CartItemModal
             key={item._id}
@@ -52,6 +62,16 @@ function NavBar() {
             cart={cart}
           />
         ))}{" "}
+        <Link href="/cart">
+          <button
+            onClick={() => {
+              handleCloseModal();
+            }}
+            className={`${classes.cartModalButton}`}
+          >
+            Voir mon panier
+          </button>
+        </Link>
       </div>
     );
   };
@@ -187,8 +207,15 @@ function NavBar() {
             <li className="nav-item">
               <Link href="/signin">
                 <a className={"nav-link" + isActive("/signin")}>
-                  <i className="fas fa-user" aria-hidden="true"></i> Se
-                  connecter
+                  <i className="fas fa-user" aria-hidden="true"></i>{" "}
+                  <span
+                    style={{
+                      color: "white",
+                      fontSize: "10px",
+                    }}
+                  >
+                    Se connecter
+                  </span>
                 </a>
               </Link>
             </li>

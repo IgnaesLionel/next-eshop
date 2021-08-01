@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { decrease, increase } from "../../store/Actions";
 import classes from "./CartItemModal.module.css";
+
 const CartItemModal = ({ item, dispatch, cart }) => {
   return (
     <tr className={`${classes.box} align-middle`}>
@@ -14,13 +15,15 @@ const CartItemModal = ({ item, dispatch, cart }) => {
       </td>
 
       <td style={{ minWidth: "200px" }} className="w-50 align-middle">
-        <h5 className="text-capitalize text-secondary">
+        <h5>
           <Link href={`/product/${item._id}`}>
-            <a>{item.title}</a>
+            <a className={`${classes.title} text-capitalize`}>{item.title}</a>
           </Link>
         </h5>
 
-        <h6 className="text-danger">{item.quantity * item.price}€</h6>
+        <h6 className="text-danger">
+          {(item.quantity * item.price).toFixed(2)}€
+        </h6>
         {item.inStock > 0 ? (
           <p className="mb-1 text-danger">En stock: {item.inStock}</p>
         ) : (

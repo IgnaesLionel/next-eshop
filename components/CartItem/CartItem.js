@@ -9,26 +9,25 @@ const CartItem = ({ item, dispatch, cart }) => {
           src={item.images[0].url}
           alt={item.images[0].url}
           className="img-thumbnail w-100"
-          style={{ minWidth: "80px", height: "80px" }}
+          style={{ minWidth: "80px" }}
         />
       </td>
 
-      <td style={{ minWidth: "200px" }} className="w-50 align-middle">
-        <h5 className="text-capitalize text-secondary">
+      <td style={{ minWidth: "100px" }} className="w-50 align-middle">
+        <h3 className="text-capitalize text-secondary">
           <Link href={`/product/${item._id}`}>
             <a>{item.title}</a>
           </Link>
-        </h5>
-
-        <h6 className="text-danger">{item.quantity * item.price}€</h6>
+        </h3>
+      </td>
+      <td className={classes.centered} style={{ minWidth: "150px" }}>
         {item.inStock > 0 ? (
           <p className="mb-1 text-danger">En stock: {item.inStock}</p>
         ) : (
           <p className="mb-1 text-danger">En rupture</p>
         )}
       </td>
-
-      <td style={{ minWidth: "150px" }}>
+      <td className={`${classes.centered} align-middle`}>
         <button
           className="btn btn-outline-secondary"
           onClick={() => dispatch(decrease(cart, item._id))}
@@ -48,6 +47,10 @@ const CartItem = ({ item, dispatch, cart }) => {
           {" "}
           +{" "}
         </button>
+      </td>
+
+      <td className={classes.centered} style={{ minWidth: "150px" }}>
+        <h3>{(item.quantity * item.price).toFixed(2)}€</h3>
       </td>
 
       <td
