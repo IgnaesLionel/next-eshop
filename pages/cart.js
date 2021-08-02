@@ -6,7 +6,6 @@ import Link from "next/link";
 import { getData, postData } from "../utils/fetchData";
 import { useRouter } from "next/router";
 import { PayPalButton } from "react-paypal-button-v2";
-import { loadStripe } from "@stripe/stripe-js";
 
 const Cart = () => {
   const { state, dispatch } = useContext(DataContext);
@@ -20,9 +19,6 @@ const Cart = () => {
 
   const [callback, setCallback] = useState(false);
   const router = useRouter();
-  const stripe = await loadStripe(
-    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-  );
 
   useEffect(() => {
     const getTotal = () => {
@@ -128,6 +124,11 @@ const Cart = () => {
     );
   };
 
+  const handleStripePayment = () => {
+    console.log("stripe");
+    const session = await createCheckoutSession;
+  };
+
   if (cart.length === 0)
     return (
       <img
@@ -208,6 +209,7 @@ const Cart = () => {
           ) : (
             <span>Loading...</span>
           )}{" "}
+          <button onClick={() => handleStripePayment()}> STRIPE !</button>
         </div>
       </div>
     </div>
