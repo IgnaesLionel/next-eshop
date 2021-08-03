@@ -5,11 +5,9 @@ import { DataContext } from "../store/GlobalState";
 import Cookie from "js-cookie";
 import classes from "./NavBar.module.scss";
 import NavBtn from "./NavBtn/NavBtn";
-import CartItemModal from "../components/CartItemModal/CartItemModal";
+import CartModal from "../components/CartModal/CartModal";
 
 function NavBar() {
-  const [showModal, setShowModal] = useState(false);
-
   const router = useRouter();
   const { state, dispatch } = useContext(DataContext);
   const { auth, cart } = state;
@@ -21,6 +19,7 @@ function NavBar() {
       return "";
     }
   };
+  const [showModal, setShowModal] = useState(false);
 
   const handleLogout = () => {
     Cookie.remove("refreshtoken", { path: "api/auth/accessToken" });
@@ -30,49 +29,18 @@ function NavBar() {
     return router.push("/");
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-  const addClasses = () => {
-    let cartModalShow = showModal ? `${classes.cartModalShow}` : null;
-
-    return cartModalShow;
-  };
-
   const cartModal = () => {
     return (
-      <div
-        className={`${classes.cartModal} ${addClasses()}`}
-        onMouseOver={() => setShowModal(true)}
-        onMouseLeave={() => setShowModal(false)}
-      >
-        <button
-          onClick={() => {
-            handleCloseModal();
-          }}
-          className={`${classes.cartModalButton2}`}
-        >
-          Valider ma commande
-        </button>{" "}
-        {cart.map((item) => (
-          <CartItemModal
-            key={item._id}
-            item={item}
-            dispatch={dispatch}
+      <>
+        {cart.length & showModal ? (
+          <CartModal
+            showModal={showModal}
+            setShowModal={setShowModal}
             cart={cart}
+            dispatch={dispatch}
           />
-        ))}{" "}
-        <Link href="/cart">
-          <button
-            onClick={() => {
-              handleCloseModal();
-            }}
-            className={`${classes.cartModalButton}`}
-          >
-            Voir mon panier
-          </button>
-        </Link>
-      </div>
+        ) : null}
+      </>
     );
   };
 

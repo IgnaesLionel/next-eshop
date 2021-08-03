@@ -124,9 +124,8 @@ const Cart = () => {
     );
   };
 
-  const handleStripePayment = () => {
+  const handleStripePayment = async () => {
     console.log("stripe");
-    const session = await createCheckoutSession;
   };
 
   if (cart.length === 0)
