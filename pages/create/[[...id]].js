@@ -140,7 +140,7 @@ const ProductsManager = () => {
   };
 
   return (
-    <div className="products_manager">
+    <div style={{ minHeight: "80vh" }} className="products_manager">
       <Head>
         <title>Products Manager</title>
       </Head>

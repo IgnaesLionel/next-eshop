@@ -107,7 +107,7 @@ const Profile = () => {
 
   if (!auth.user) return null;
   return (
-    <div className="profile_page">
+    <div style={{ minHeight: "80vh" }} className="profile_page">
       <Head>
         <title>Profile</title>
       </Head>

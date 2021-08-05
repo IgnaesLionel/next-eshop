@@ -48,7 +48,7 @@ const Register = () => {
   }, [auth]);
 
   return (
-    <div>
+    <div style={{ minHeight: "80vh" }}>
       <Head>
         <title>Page d{"'"}inscription</title>
       </Head>

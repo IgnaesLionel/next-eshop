@@ -20,7 +20,7 @@ const DetailOrder = () => {
 
   if (!auth.user) return null;
   return (
-    <div className="my-3">
+    <div style={{ minHeight: "80vh" }} className="my-3">
       <Head>
         <title>Detail Orders</title>
       </Head>

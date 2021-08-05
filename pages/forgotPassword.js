@@ -5,11 +5,14 @@ import { DataContext } from "../store/GlobalState";
 import { postData } from "../utils/fetchData";
 import Cookie from "js-cookie";
 import { useRouter } from "next/router";
+import jwt from "jsonwebtoken";
+
+//send email with link --> resetpassword page
 
 const Signin = () => {
   const initialState = { email: "", password: "" };
   const [userData, setUserData] = useState(initialState);
-  const { email, password } = userData;
+  const { email } = userData;
 
   const { state, dispatch } = useContext(DataContext);
   const { auth } = state;
@@ -25,26 +28,19 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "NOTIFY", payload: { loading: true } });
-    const res = await postData("auth/login", userData);
-
+    //user existe ?
+    const res = await postData("auth/passwordRecovery", userData);
     if (res.err)
       return dispatch({ type: "NOTIFY", payload: { error: res.err } });
     dispatch({ type: "NOTIFY", payload: { success: res.msg } });
 
-    dispatch({
-      type: "AUTH",
-      payload: {
-        token: res.access_token,
-        user: res.user,
-      },
-    });
+    const secret = process.env.ACCESS_TOKEN_SECRET + res.user.password;
+    const payload = { email: res.user.email };
+    const token = jwt.sign(payload, secret, { expiresIn: "15m" });
+    const link = `${process.env.BASE_URL}/recoverPassword/${res.user.id}/${token}`;
 
-    Cookie.set("refreshtoken", res.refresh_token, {
-      path: "api/auth/accessToken",
-      expires: 7,
-    });
-
-    localStorage.setItem("firstLogin", true);
+    //send email with link --> resetpassword page
+    console.log(link);
   };
 
   useEffect(() => {
@@ -54,7 +50,7 @@ const Signin = () => {
   return (
     <div style={{ minHeight: "80vh" }}>
       <Head>
-        <title>Page de connection</title>
+        <title>Récupération de mot de passe</title>
       </Head>
 
       <form
@@ -73,20 +69,6 @@ const Signin = () => {
             value={email}
             onChange={handleChangeInput}
           />
-          <small id="emailHelp" className="form-text text-muted">
-            Nous ne partagerons jamais votre adresse e-mail privée.
-          </small>
-        </div>
-        <div className="form-group">
-          <label htmlFor="exampleInputPassword1">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-            name="password"
-            value={password}
-            onChange={handleChangeInput}
-          />
         </div>
 
         <button type="submit" className="btn btn-dark w-100">
@@ -101,9 +83,9 @@ const Signin = () => {
         </p>
 
         <p className="my-2">
-          Vous avez oublié votre mot de passe ?{" "}
-          <Link href="/forgotPassword">
-            <a style={{ color: "crimson" }}>Réinitialisez-le</a>
+          Vous avez déja un compte ?{" "}
+          <Link href="/signin">
+            <a style={{ color: "crimson" }}>Connectez-vous</a>
           </Link>
         </p>
       </form>

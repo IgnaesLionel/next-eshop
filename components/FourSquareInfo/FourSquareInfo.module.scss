@@ -4,10 +4,22 @@
 .container {
   display: flex;
   justify-content: space-evenly;
+
+  @include respond(tab-port) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 }
 
 .content {
   width: 20%;
+
+  @include respond(tab-port) {
+    width: 80%;
+    padding-bottom: 10rem;
+  }
 }
 .sectionFeatures {
   padding: 20rem 0 15rem 0;

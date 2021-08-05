@@ -12,8 +12,8 @@ const Cart = () => {
   const { cart, auth, orders } = state;
 
   const [total, setTotal] = useState(0);
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-
+  /*   const [scriptLoaded, setScriptLoaded] = useState(false);
+   */
   const [address, setAddress] = useState("");
   const [mobile, setMobile] = useState("");
 
@@ -61,7 +61,7 @@ const Cart = () => {
       updateCart();
     }
 
-    const addPaypalScript = () => {
+    /*    const addPaypalScript = () => {
       const scriptPayPal = document.createElement("script");
       scriptPayPal.src =
         "https://www.paypal.com/sdk/js?client-id=AdqPpNH070_f5WiuGsgJb3ZnuaWp5xFnlBusRJqWwI3gSHZ-odjbQq4tRlQNG4oU2e_9i1ZACJ0RI-wo";
@@ -73,7 +73,7 @@ const Cart = () => {
       document.body.appendChild(scriptPayPal);
     };
 
-    addPaypalScript();
+    addPaypalScript(); */
   }, [callback]);
 
   const handlePayment = async () => {
@@ -196,7 +196,7 @@ const Cart = () => {
         </Link>
 
         <div>
-          {scriptLoaded ? (
+          {/*  {scriptLoaded ? (
             <PayPalButton
               amount={total}
               onSuccess={(details, data) => {
@@ -207,8 +207,8 @@ const Cart = () => {
             />
           ) : (
             <span>Loading...</span>
-          )}{" "}
-          <button onClick={() => handleStripePayment()}> STRIPE !</button>
+          )}{" "} */}
+          <button onClick={() => handleStripePayment()}> test STRIPE !</button>
         </div>
       </div>
     </div>

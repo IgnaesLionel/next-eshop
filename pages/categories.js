@@ -53,7 +53,7 @@ const Categories = () => {
   };
 
   return (
-    <div className="col-md-6 mx-auto my-3">
+    <div style={{ minHeight: "80vh" }} className="col-md-6 mx-auto my-3">
       <Head>
         <title>Categories</title>
       </Head>
@@ -62,13 +62,13 @@ const Categories = () => {
         <input
           type="text"
           className="form-control"
-          placeholder="Add a new category"
+          placeholder="Ajouter une nouvelle categorie"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
 
         <button className="btn btn-secondary ml-1" onClick={createCategory}>
-          {id ? "Update" : "Create"}
+          {id ? "Mise a jour" : "Créer"}
         </button>
       </div>
 
