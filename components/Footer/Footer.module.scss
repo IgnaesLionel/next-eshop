@@ -20,7 +20,7 @@
   width: 100%;
   z-index: -1;
   @include respond(tab-port) {
-    padding: 8rem 0;
+    padding: 12rem 0;
   }
 
   &__logoBox {
@@ -30,11 +30,6 @@
     @include respond(tab-port) {
       margin-bottom: 6rem;
     }
-  }
-
-  &__logo {
-    width: 15rem;
-    height: auto;
   }
 
   &__navigation {
@@ -141,4 +136,16 @@
   position: absolute;
   right: 20%;
   bottom: 100%;
+
+  @include respond(phone) {
+    width: 10rem;
+    top: -10rem;
+    left: 2.5rem;
+  }
+
+  @include respond(tab-port) {
+    width: 10rem;
+    top: -11rem;
+    left: 22.5rem;
+  }
 }
