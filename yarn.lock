@@ -1937,8 +1937,7 @@ chokidar@3.4.2:
     is-glob "~4.0.1"
     normalize-path "~3.0.0"
     readdirp "~3.4.0"
-  optionalDependencies:
-    fsevents "~2.1.2"
+
 
 "chokidar@>=3.0.0 <4.0.0", chokidar@^3.4.1:
   version "3.5.2"
@@ -1952,8 +1951,7 @@ chokidar@3.4.2:
     is-glob "~4.0.1"
     normalize-path "~3.0.0"
     readdirp "~3.6.0"
-  optionalDependencies:
-    fsevents "~2.3.2"
+
 
 chokidar@^2.1.8:
   version "2.1.8"
@@ -1971,8 +1969,7 @@ chokidar@^2.1.8:
     path-is-absolute "^1.0.0"
     readdirp "^2.2.1"
     upath "^1.1.1"
-  optionalDependencies:
-    fsevents "^1.2.7"
+
 
 chownr@^1.1.1:
   version "1.1.4"

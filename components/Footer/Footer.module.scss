@@ -8,7 +8,7 @@
   width: 100%;
   display: flex;
   justify-content: space-around;
-  position: relative;
+  position: absolute;
 }
 .footer {
   background-color: $color-primary-dark;
@@ -117,7 +117,11 @@
     @media (max-width: 37.5em) {
       //phone 600px
       letter-spacing: 1rem;
-      font-family: 5rem;
+      font-family: 3rem;
+    }
+    @include respond(phone) {
+      font-size: 3rem;
+      margin: 0 auto;
     }
   }
 
@@ -132,23 +136,5 @@
       //phone 600px
       letter-spacing: 0.5rem;
     }
-  }
-}
-
-.Logo {
-  position: absolute;
-  right: 20%;
-  bottom: 100%;
-
-  @include respond(phone) {
-    width: 10rem;
-    top: -10rem;
-    left: 2.5rem;
-  }
-
-  @include respond(tab-port) {
-    width: 10rem;
-    top: -11rem;
-    left: 22.5rem;
   }
 }

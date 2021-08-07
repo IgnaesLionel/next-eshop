@@ -11,6 +11,7 @@ import filterSearch from "../utils/filterSearch";
 import Filter from "../components/Filter";
 
 const Home = (props) => {
+  console.log(props);
   const [products, setProducts] = useState(props.products);
 
   const [isCheck, setIsCheck] = useState(false);
@@ -117,10 +118,10 @@ const Home = (props) => {
         ""
       ) : (
         <button
-          className="btn btn-outline-info d-block mx-auto mb-4"
+          className={`${classes.loadMoreBtn} btn btn-outline-info d-block mx-auto mb-4`}
           onClick={handleLoadmore}
         >
-          Load more
+          Voir plus de produits
         </button>
       )}
     </div>

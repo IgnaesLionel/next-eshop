@@ -52,14 +52,6 @@ const Footer00 = () => {
               Copyright Cuvelier&copy;
             </p>
           </div>
-          <div className={classes.Logo}>
-            <Image
-              src={Logo}
-              height={100}
-              width={100}
-              alt="Logo BackEurop"
-            ></Image>
-          </div>
         </div>
       </footer>
     </div>

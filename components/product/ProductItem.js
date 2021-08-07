@@ -120,7 +120,7 @@ const ProductItem = ({ product, handleCheck }) => {
         />
       </Link>
 
-      <div className="card-body">
+      <div className={`${classes.cardBody}`}>
         <Link href={`product/${product._id}`}>
           <div>
             <h5
@@ -135,48 +135,42 @@ const ProductItem = ({ product, handleCheck }) => {
             </p>
           </div>
         </Link>
-        <div>
-          <div>
-            <tr>
-              <td className={`${classes.center}`} style={{ minWidth: "150px" }}>
-                <button
-                  className="btn btn-outline-secondary"
-                  onClick={() => quantity("moins")}
-                  disabled={product === 1 ? true : false}
-                >
-                  {" "}
-                  -{" "}
-                </button>
+        <div className={`${classes.center}`}>
+          <button
+            className="btn btn-outline-secondary"
+            onClick={() => quantity("moins")}
+            disabled={product === 1 ? true : false}
+          >
+            {" "}
+            -{" "}
+          </button>
 
-                <span className="px-3">{number}</span>
+          <span className="px-3">{number}</span>
 
-                <button
-                  className="btn btn-outline-secondary"
-                  onClick={() => quantity("plus")}
-                  disabled={product === product.inStock ? true : false}
-                >
-                  {" "}
-                  +{" "}
-                </button>
-              </td>
-            </tr>
-          </div>
-
-          <h6 className="text-dark" style={{ paddingLeft: "6px" }}>
-            Prix : {product.price}€ TTC
-          </h6>
-
-          {product.inStock > 0 ? (
-            <h6 className="text-dark" style={{ paddingLeft: "6px" }}>
-              En stock: {product.inStock}
-            </h6>
-          ) : (
-            <h6 className="text-danger" style={{ paddingLeft: "6px" }}>
-              En rupture
-            </h6>
-          )}
+          <button
+            className="btn btn-outline-secondary"
+            onClick={() => quantity("plus")}
+            disabled={product === product.inStock ? true : false}
+          >
+            {" "}
+            +{" "}
+          </button>
         </div>
 
+        <div className={`${classes.center}`} style={{ paddingLeft: "6px" }}>
+          <span className={`${classes.price}`}>
+            {product.price.toString().replace(".", ",")}€{" "}
+          </span>
+          <span>TTC</span>
+        </div>
+
+        {product.inStock > 0 ? (
+          <h6 style={{ paddingLeft: "6px" }}>En stock: {product.inStock}</h6>
+        ) : (
+          <h6 className="text-danger" style={{ paddingLeft: "6px" }}>
+            En rupture
+          </h6>
+        )}
         <div className="row justify-content-between mx-0">
           {!auth.user || auth.user.role !== "admin" ? userLink() : adminLink()}
         </div>
