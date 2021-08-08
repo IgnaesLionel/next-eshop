@@ -148,20 +148,7 @@ function NavBar() {
             className={`fas fa-shopping-cart fa-2x position-relative ${classes.cart}`}
             aria-hidden="true"
           >
-            <span
-              className="position-absolute"
-              style={{
-                padding: "3px 6px",
-                background: "#ed143d",
-                borderRadius: "50%",
-                top: "-3px",
-                right: "2px",
-                color: "white",
-                fontSize: "14px",
-              }}
-            >
-              {cart.length}
-            </span>
+            <span className={classes.sticky}>{cart.length} article</span>
           </i>{" "}
         </a>
       </Link>
