@@ -12,10 +12,6 @@ const FullScreenMenu = () => {
         type="checkbox"
         className={classes.navigation__checkbox}
         id="navi-toggle"
-        /*   defaultChecked={count} */
-        onChange={() => {
-          setCount(!count);
-        }} /*  value={count} */
         onClick={() => {
           setCount(!count);
         }}
@@ -28,71 +24,83 @@ const FullScreenMenu = () => {
 
       <nav className={classes.navigation__nav}>
         <ul className={classes.navigation__list}>
-          <Link href={"/"}>
-            <li className={classes.navigation__item}>
-              <a
-                href="/"
-                className={classes.navigation__link}
-                onClick={() => {
-                  setCount(false);
-                }}
-              >
-                <span>01</span>Accueil
-              </a>{" "}
-            </li>
-          </Link>
-          <Link href={"/produits"}>
-            <li className={classes.navigation__item}>
-              <a
-                href="/"
-                className={classes.navigation__link}
-                onClick={() => {
-                  setCount(!count);
-                }}
-              >
-                <span>02</span>Nos produits
-              </a>{" "}
-            </li>
-          </Link>
-          <Link href={"/moyens"}>
-            <li className={classes.navigation__item}>
-              <a
-                href="/"
-                className={classes.navigation__link}
-                onClick={() => {
-                  setCount(!count);
-                }}
-              >
-                <span>03</span> Nos moyens
-              </a>{" "}
-            </li>
-          </Link>
-          <Link href={"/actualites"}>
-            <li className={classes.navigation__item}>
-              <a
-                href="/"
-                className={classes.navigation__link}
-                onClick={() => {
-                  setCount(!count);
-                }}
-              >
-                <span>04</span>actualités
-              </a>{" "}
-            </li>
-          </Link>
-          <Link href={"/contact"}>
-            <li className={classes.navigation__item}>
-              <a
-                href="/"
-                className={classes.navigation__link}
-                onClick={() => {
-                  setCount(!count);
-                }}
-              >
-                <span>05</span> Contactez-nous
-              </a>
-            </li>
-          </Link>
+          {count ? (
+            <Link href={"/"}>
+              <li className={classes.navigation__item}>
+                <a
+                  href="/"
+                  className={classes.navigation__link}
+                  onClick={() => {
+                    setCount(false);
+                  }}
+                >
+                  <span>01</span>Accueil
+                </a>{" "}
+              </li>
+            </Link>
+          ) : null}
+
+          {count ? (
+            <Link href={"/produits"}>
+              <li className={classes.navigation__item}>
+                <a
+                  href="/"
+                  className={classes.navigation__link}
+                  onClick={() => {
+                    setCount(false);
+                  }}
+                >
+                  <span>02</span>Nos produits
+                </a>{" "}
+              </li>
+            </Link>
+          ) : null}
+          {count ? (
+            <Link href={"/moyens"}>
+              <li className={classes.navigation__item}>
+                <a
+                  href="/"
+                  className={classes.navigation__link}
+                  onClick={() => {
+                    setCount(false);
+                  }}
+                >
+                  <span>03</span>Nos moyens
+                </a>
+              </li>
+            </Link>
+          ) : null}
+          {count ? (
+            <Link href={"/actualites"}>
+              <li className={classes.navigation__item}>
+                <a
+                  href="/"
+                  className={classes.navigation__link}
+                  onClick={() => {
+                    setCount(false);
+                  }}
+                >
+                  <span>04</span>actualités
+                </a>{" "}
+              </li>
+            </Link>
+          ) : null}
+
+          {count ? (
+            <Link href={"/contact"}>
+              <li className={classes.navigation__item}>
+                <a
+                  href="/"
+                  className={classes.navigation__link}
+                  onClick={() => {
+                    setCount(false);
+                  }}
+                >
+                  <span>05</span> Contactez-nous
+                </a>
+              </li>
+            </Link>
+          ) : null}
         </ul>
       </nav>
     </div>

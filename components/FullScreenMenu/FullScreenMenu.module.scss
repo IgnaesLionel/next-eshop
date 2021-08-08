@@ -40,14 +40,14 @@
     cursor: pointer;
 
     @include respond(tab-port) {
-      top: 6rem;
+      top: 1.3rem;
       left: 10rem;
       height: 4rem;
       width: 4rem;
     }
 
     @include respond(phone) {
-      top: 3.2rem;
+      top: 1.2rem;
       left: 5.5rem;
       height: 4rem;
       width: 4rem;
@@ -69,14 +69,14 @@
     //transform: scale(80);
 
     @include respond(tab-port) {
-      top: 6rem;
+      top: 1.3rem;
       left: 10rem;
       height: 4rem;
       width: 4rem;
     }
 
     @include respond(phone) {
-      top: 3.2rem;
+      top: 1.2rem;
       left: 5.5rem;
       height: 4rem;
       width: 4rem;

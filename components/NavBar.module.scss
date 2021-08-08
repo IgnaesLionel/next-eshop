@@ -54,6 +54,7 @@
   width: 90%;
   padding: 10px 0 0 0;
   z-index: 1500;
+  top: 0px;
 
   @include respond(tab-port) {
     justify-content: flex-end;

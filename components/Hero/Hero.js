@@ -3,6 +3,7 @@ import classes from "./Hero.module.scss";
 import BtnPulseSass from "../BtnRoundPulse/BtnRoundPulse";
 import Image from "next/image";
 import logo from "./Logo.png";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -21,12 +22,16 @@ const Header = () => {
             Grossiste alimentaire - Dunkerque
           </span>
         </h1>
-
-        <BtnPulseSass
-          text="Découvrez nos produits!"
-          color="white"
-          path="/produits"
-        />
+        <div className={classes.BtnPulseSass}>
+          {" "}
+          <Link href="/produits">
+            <BtnPulseSass
+              text="Découvrez nos produits!"
+              color="white"
+              path="/produits"
+            />
+          </Link>
+        </div>
       </div>
     </header>
   );

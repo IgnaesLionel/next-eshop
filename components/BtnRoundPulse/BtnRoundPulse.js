@@ -12,8 +12,9 @@ const BtnPulse = ({ text, color, path }) => {
   if (color == "green") {
     selectedColor = classes.btn__green;
   }
+  console.log(path);
   return (
-    <Link href={`${path}`}>
+    <Link href="/produits">
       <a className={`${classes.btn} ${selectedColor} ${classes.btn__animated}`}>
         {text}
       </a>

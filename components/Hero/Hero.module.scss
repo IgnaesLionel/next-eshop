@@ -6,20 +6,18 @@
   font-style: italic;
   font-weight: bold;
   line-height: 1.7;
-  height: 85vh;
+
   background-image: linear-gradient(
       to right bottom,
       rgba($color-primary-light, 0.1),
       rgba($color-primary-dark, 0.1)
     ),
     url(./back-small.jpg);
-  z-index: -1;
+  z-index: 0;
   background-size: cover; /* resize */
   background-position: top;
 
   &__logoBox {
-    height: 40%;
-    width: 40%;
   }
 
   position: relative; /* for logobox, on absolute */
@@ -49,18 +47,18 @@
 
   &__logoBox {
     position: absolute;
-    top: 27%;
+    top: 17%;
     left: 50%;
     width: 18rem;
     max-width: 25%;
     transform: translate(-50%, -50%);
 
     @include respond(tab-port) {
-      top: 32%;
+      top: 170px;
     }
 
     @include respond(phone) {
-      top: 32%;
+      top: 100px;
     }
   }
 
@@ -167,4 +165,9 @@
     font-size: 1.5rem;
     bottom: 14rem;
   }
+}
+
+.BtnPulseSass {
+  width: 100%;
+  height: 100%;
 }
