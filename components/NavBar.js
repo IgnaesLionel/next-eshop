@@ -6,6 +6,7 @@ import Cookie from "js-cookie";
 import classes from "./NavBar.module.scss";
 import NavBtn from "./NavBtn/NavBtn";
 import CartModal from "../components/CartModal/CartModal";
+import FullScreenMenu from "./FullScreenMenu/FullScreenMenu";
 
 function NavBar() {
   const router = useRouter();
@@ -108,68 +109,63 @@ function NavBar() {
   };
 
   return (
-    <nav className={`${classes.navigation} navbar navbar-expand-lg `}>
-      <div className={classes.burgerBtn}></div>
-      <div className={classes.container}>
-        <Link href="/">
-          <a>
-            <NavBtn url="/" name="Cuvelier" />
-          </a>
-        </Link>
-        <Link href="/produits">
-          <a>
-            <NavBtn url="/produits" name="Nos produits" />
-          </a>
-        </Link>
-        <Link href="/moyens">
-          <a className="a">
-            <NavBtn url="/moyens" name="Nos moyens" />
-          </a>
-        </Link>
-        <Link href="/actualites">
-          <a>
-            <NavBtn
-              url="/actualites"
-              name="Nos actualités
+    <nav className={classes.flexboxWrapper}>
+      <Link href="/">
+        <a className={classes.sticky}>
+          <NavBtn url="/" name="Cuvelier" />
+        </a>
+      </Link>
+
+      <Link href="/produits">
+        <a className={classes.sticky}>
+          <NavBtn url="/produits" name="Nos produits" />
+        </a>
+      </Link>
+      <Link href="/moyens">
+        <a className={classes.sticky}>
+          <NavBtn url="/moyens" name="Nos moyens" />
+        </a>
+      </Link>
+      <Link href="/actualites">
+        <a className={classes.sticky}>
+          <NavBtn
+            url="/actualites"
+            name="Nos actualités
             "
-            />
-          </a>
-        </Link>
-        <Link href="/contact">
-          <a>
-            <NavBtn url="/contact" name="Contactez-nous" />
-          </a>
-        </Link>
-        <Link href="/cart">
-          <a className={"nav-link" + isActive("/cart")}>
-            <i
-              onMouseOver={() => setShowModal(true)}
-              className={`fas fa-shopping-cart fa-2x position-relative ${classes.cart}`}
-              aria-hidden="true"
+          />
+        </a>
+      </Link>
+      <Link href="/contact">
+        <a className={classes.sticky}>
+          <NavBtn url="/contact" name="Contactez-nous" />
+        </a>
+      </Link>
+
+      <Link className={classes.sticky} href="/cart">
+        <a className={"nav-link" + isActive("/cart")}>
+          <i
+            onMouseOver={() => setShowModal(true)}
+            className={`fas fa-shopping-cart fa-2x position-relative ${classes.cart}`}
+            aria-hidden="true"
+          >
+            <span
+              className="position-absolute"
+              style={{
+                padding: "3px 6px",
+                background: "#ed143d",
+                borderRadius: "50%",
+                top: "-3px",
+                right: "2px",
+                color: "white",
+                fontSize: "14px",
+              }}
             >
-              <span
-                className="position-absolute"
-                style={{
-                  padding: "3px 6px",
-                  background: "#ed143d",
-                  borderRadius: "50%",
-                  top: "-3px",
-                  right: "2px",
-                  color: "white",
-                  fontSize: "14px",
-                }}
-              >
-                {cart.length}
-              </span>
-            </i>{" "}
-          </a>
-        </Link>
-        {cartModal()}
-      </div>
-      <div
-        className="collapse navbar-collapse justify-content-end"
-        id="navbarNavDropdown"
-      >
+              {cart.length}
+            </span>
+          </i>{" "}
+        </a>
+      </Link>
+      <div id="navbarNavDropdown">
         <ul className="navbar-nav p-1">
           {Object.keys(auth).length === 0 ? (
             <li className="nav-item">
@@ -191,6 +187,8 @@ function NavBar() {
             loggedRouter()
           )}
         </ul>
+        {cartModal()}
+        <FullScreenMenu />
       </div>
     </nav>
   );

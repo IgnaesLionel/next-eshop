@@ -13,6 +13,7 @@
       rgba($color-primary-dark, 0.1)
     ),
     url(./back-small.jpg);
+  z-index: -1;
   background-size: cover; /* resize */
   background-position: top;
 
@@ -48,11 +49,15 @@
 
   &__logoBox {
     position: absolute;
-    top: 20%;
+    top: 27%;
     left: 50%;
-    width: 30%;
+    width: 18rem;
     max-width: 25%;
     transform: translate(-50%, -50%);
+
+    @include respond(tab-port) {
+      top: 32%;
+    }
 
     @include respond(phone) {
       top: 32%;
