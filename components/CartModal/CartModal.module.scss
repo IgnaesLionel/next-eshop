@@ -12,11 +12,18 @@
   top: 50px;
   display: none;
   padding: 12px;
+
+  @include respond(tab-land) {
+    display: none;
+  }
 }
 
 .cartModalShow {
   color: white;
   display: block;
+  @include respond(tab-land) {
+    display: none;
+  }
 }
 
 .cartModalButton {

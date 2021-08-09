@@ -141,14 +141,18 @@ function NavBar() {
         </a>
       </Link>
 
-      <Link className={classes.sticky} href="/cart">
+      <Link className={classes.cartBtn} href="/cart">
         <a className={"nav-link" + isActive("/cart")}>
           <i
+            style={{
+              color: "white",
+            }}
             onMouseOver={() => setShowModal(true)}
             className={`fas fa-shopping-cart fa-2x position-relative ${classes.cart}`}
             aria-hidden="true"
           >
-            <span className={classes.sticky}>{cart.length} article</span>
+            <span> {cart.length}</span>
+            {cart.length > 1 ? " articles" : " article"}
           </i>{" "}
         </a>
       </Link>
